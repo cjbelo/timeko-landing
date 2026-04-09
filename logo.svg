@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img" aria-labelledby="title desc">
+  <!-- rounded app tile -->
+  <rect x="0" y="0" width="256" height="256" rx="64" fill="#DC2626"/>
+  <!-- clock ring -->
+  <circle cx="128" cy="128" r="90" fill="none" stroke="#FFFFFF" stroke-width="18"/>
+  <!-- hour/minute hands -->
+  <path d="M128 95v35l24 14" fill="none" stroke="#FFFFFF" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- bottom bar hinting time tracking / punch line -->
+  <rect x="64" y="191" width="128" height="18" rx="10" fill="#FFB703"/>
+</svg>

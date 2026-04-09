@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Timeko — Coming Soon</title>
+
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                red: "#dc2626",
+                yellow: "#facc15",
+                dark: "#0f172a",
+              },
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+
+  <body
+    class="bg-gradient-to-br from-white to-red-50 text-gray-800 min-h-screen flex items-center justify-center"
+  >
+    <div class="max-w-xl w-full px-6 text-center">
+      <!-- Logo -->
+      <div class="mb-6">
+        <image
+          src="logo.svg"
+          alt="Timeko Logo"
+          class="mx-auto w-12 h-12 mb-4"
+        />
+        <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight">
+          <span class="text-brand.red">Time</span
+          ><span class="text-brand.yellow">ko</span>
+        </h1>
+        <p class="text-sm text-gray-500 mt-2">
+          Smart time tracking for modern teams
+        </p>
+      </div>
+
+      <!-- Headline -->
+      <h2 class="text-2xl md:text-3xl font-bold mb-4">
+        We're launching soon 🚀
+      </h2>
+
+      <p class="text-gray-600 mb-8">
+        A smarter way for businesses to manage employee time-in, time-out, and
+        attendance — all in one place.
+      </p>
+
+      <!-- Countdown -->
+      <div class="flex justify-center gap-4 mb-8">
+        <div class="bg-white shadow rounded-xl px-4 py-3">
+          <p id="days" class="text-xl font-bold">00</p>
+          <p class="text-xs text-gray-500">Days</p>
+        </div>
+        <div class="bg-white shadow rounded-xl px-4 py-3">
+          <p id="hours" class="text-xl font-bold">00</p>
+          <p class="text-xs text-gray-500">Hours</p>
+        </div>
+        <div class="bg-white shadow rounded-xl px-4 py-3">
+          <p id="minutes" class="text-xl font-bold">00</p>
+          <p class="text-xs text-gray-500">Minutes</p>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div class="mt-10 text-xs text-gray-400">
+        © <span id="year"></span> Timeko. All rights reserved.
+      </div>
+    </div>
+
+    <!-- JS -->
+    <script>
+      // Countdown (set your launch date here)
+      const launchDate = new Date("2026-06-01T00:00:00").getTime();
+
+      function updateCountdown() {
+        const now = new Date().getTime();
+        const distance = launchDate - now;
+
+        if (distance < 0) return;
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
+        const minutes = Math.floor((distance / (1000 * 60)) % 60);
+
+        document.getElementById("days").innerText = String(days).padStart(
+          2,
+          "0",
+        );
+        document.getElementById("hours").innerText = String(hours).padStart(
+          2,
+          "0",
+        );
+        document.getElementById("minutes").innerText = String(minutes).padStart(
+          2,
+          "0",
+        );
+      }
+
+      setInterval(updateCountdown, 1000);
+      updateCountdown();
+
+      // Year
+      document.getElementById("year").innerText = new Date().getFullYear();
+    </script>
+  </body>
+</html>
